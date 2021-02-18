@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('adminHome')->middleware("admin");
 
-Route::get('/home/manageuser', [App\Http\Controllers\UserController::class, 'index'])->name('UserManager')->middleware("admin");
+/*Route::get('/home/manageuser', [App\Http\Controllers\UserController::class, 'index'])->name('UserManager')->middleware("admin");
+
+Route::get('/home/manageuser/create', [App\Http\Controllers\UserController::class, 'create'])->name('UserCreator')->middleware("admin");*/
+
+Route::resource('users', UserController::class)->middleware("admin");

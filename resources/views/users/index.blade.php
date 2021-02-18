@@ -4,12 +4,30 @@ User Management
 @endsection
 @section('content')
 <div class="container">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item "><a href="#">Home</a></li>
-    <li class="breadcrumb-item text-success" aria-current="page">User Management</li>
-  </ol>
-</nav>
+    <div class="row">
+        <div class="col-md-12 " >
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item "><a href="#">Home</a></li>
+            <li class="breadcrumb-item text-success" aria-current="page">User Management</li>
+          </ol>
+
+        </nav>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4  class="pl-1">All Users</h4>
+        </div>
+
+        <div class="col-md-6 text-right pl-3">
+            <button class="p-2 mb-3"><a href={{route('users.create')}}>Add a User</a></button>
+        </div>
+    </div>
 </div>
 
 @if($users->count() < 0)
@@ -26,30 +44,31 @@ User Management
   <thead class="thead-light">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Type</th>
+      <th scope="col ">Manage</th>
+      <th scope="col"></th>
     </tr>
   </thead>
+    @foreach($users as $user)
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+
+      <td>{{$user->id}}</td>
+      <td>{{$user->name}}</td>
+      <td>{{$user->email}}</td>
+      <td>{{$user->type}}</td>
+      <th scope="row"><a class="btn btn-warning text-dark btn-outline" href="{{ route('users.edit', $user->id)}}" role="button">Edit</a></th>
+      <td scope="row">
+            <form action="{{ route('users.destroy', $user->id)}} " class="form" role="form" method="POST">
+                <input type="hidden" name="_method" value="delete">
+                {{ csrf_field()}}
+                <input class="btn btn-danger" type="submit" value="Delete" >
+            </form>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 </div>
