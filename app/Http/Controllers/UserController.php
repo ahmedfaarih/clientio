@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -36,15 +38,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
-        return User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+        /*$this->validate([
+            'name' => 'name',
+            'email' => 'email',
+            'password' => Hash::make('password'),
+        ]);*/
+        $this->validate($request,[
+            'name'=>'required',
+            'email' => 'email',
+
         ]);
 
-        return view('users.index');
+
+        User::create($request->all());
+
+        return Redirect::route('users.index');
     }
 
     /**

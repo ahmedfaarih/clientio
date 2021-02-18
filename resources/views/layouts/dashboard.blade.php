@@ -33,8 +33,8 @@
         </main>
     </div>
         <!-- Footer -->
-        <footer class="footer pt-0">
-
+        <footer class="footer pt-0 text-center">
+          &copy MN LAWYERS  {{ date('Y')  }}
         </footer>
 
 </div>

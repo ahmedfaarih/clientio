@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
+@include('layouts.header')
+@extends('layouts.sidebar')
 
 @section('title')
     Creating Users
@@ -27,7 +29,7 @@
                         </div><br/>
                     @endif
                         <form action="{{ route('users.store') }}" method="POST">
-                           @csrf
+                            {{csrf_field() }}
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">

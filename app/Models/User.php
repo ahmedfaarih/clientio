@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -22,7 +23,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -48,12 +49,17 @@ class User extends Authenticatable
             return true;
         }
         return false;
-    } 
+    }
 
     public function isGoUser(){
         if ($this->type == "GOUSER") {
             return true;
         }
         return false;
+    }
+
+    public function setPasswordAttribute($pass)
+    {
+        $this->attributes['password'] = Hash::make($pass);
     }
 }
