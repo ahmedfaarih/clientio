@@ -63,7 +63,7 @@
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->type}}</td>
-      <th scope="row"><a class="btn btn-warning text-dark btn-outline" href="{{ route('users.edit', $user->id)}}" role="button">Edit</a></th>
+      <th scope="row"><a class="btn btn-warning text-dark btn-outline" href="{{ route('users.edit', $user)}}" role="button">Edit</a></th>
       <td scope="row">
             <form action="{{ route('users.destroy', $user->id)}} " class="form" role="form" method="POST">
                 <input type="hidden" name="_method" value="delete">

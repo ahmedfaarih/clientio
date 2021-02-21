@@ -78,7 +78,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -90,7 +90,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'email' => 'email',
+
+        ]);
+        $user->update($request->all());
+
+        return \redirect('/users');
     }
 
     /**
@@ -99,8 +106,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::findorFail($id);
+        $user->delete();
+
+        return redirect('/users');
     }
 }

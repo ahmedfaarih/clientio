@@ -27,13 +27,20 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href={{route('users.index')}}>
+                            <i class="fas fa-folder-open"></i>
+                            <span class="nav-link-text">Manage Cases</span>
+                        </a>
+                    </li>
+
                 </ul>
                 <!-- Divider -->
                 <hr class="my-3">
                 <!-- Heading -->
-                <h6 class="navbar-heading p-0 text-muted">
+               {{-- <h6 class="navbar-heading p-0 text-muted">
                     <span class="docs-normal">Documentation</span>
-                </h6>
+                </h6>--}}
                 <!-- Navigation -->
 
             </div>
