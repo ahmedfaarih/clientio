@@ -30,7 +30,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href={{route('users.index')}}>
                             <i class="fas fa-folder-open"></i>
-                            <span class="nav-link-text">Manage Cases</span>
+                            <span class="nav-link-text">Manage Projects</span>
                         </a>
                     </li>
 
