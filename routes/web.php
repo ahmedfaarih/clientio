@@ -28,3 +28,4 @@ Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdm
 Route::get('/home/manageuser/create', [App\Http\Controllers\UserController::class, 'create'])->name('UserCreator')->middleware("admin");*/
 
 Route::resource('users', UserController::class)->middleware("admin");
+Route::resource('projects', ProjectController::class)->middleware("admin");
