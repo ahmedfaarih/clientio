@@ -20,6 +20,6 @@ class EnsureAdmin
         if (Auth::user()->isAdmin()) {
             return $next($request);
         }
-        abort(404);
+        return redirect(route('home'));
     }
 }

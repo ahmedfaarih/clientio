@@ -28,9 +28,7 @@
             <h4  class="pl-1">All Users</h4>
         </div>
 
-        <div class="col-md-6 text-right pl-3">
-            <button class="p-2 mb-3"><a href={{route('users.create')}}>Add a User</a></button>
-        </div>
+
     </div>
 </div>
 
@@ -64,13 +62,13 @@
       <td>{{$user->email}}</td>
       <td>{{$user->type}}</td>
       <th scope="row"><a class="btn btn-warning text-dark btn-outline" href="{{ route('users.edit', $user)}}" role="button">Edit</a></th>
-      <td scope="row">
+        <td scope="row">
             <form action="{{ route('users.destroy', $user->id)}} " class="form" role="form" method="POST">
                 <input type="hidden" name="_method" value="delete">
                 {{ csrf_field()}}
-                <input class="btn btn-danger" type="submit" value="Delete" >
+                <input class="btn btn-danger" type="submit" value="Delete"  @if($user->hasCases($user->id)) disabled @endif>
             </form>
-      </td>
+        </td>
     </tr>
     @endforeach
   </tbody>

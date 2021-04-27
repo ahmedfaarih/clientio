@@ -45,12 +45,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Password:</strong>
-                                    <input value="{{$user->password}}" type="password" name="password" class="form-control" placeholder="User password">
-                                </div>
-                            </div>
+
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <label for="pet-select">Choose User Type:</label>

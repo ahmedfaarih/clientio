@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Projects;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Redirect;
-
 class UserController extends Controller
 {
+    use RegistersUsers;
     /**
      * Display a listing of the resource.
      *
@@ -28,8 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-
-        return view('users.create');
+        Auth::logout();
+        return view('auth.register');
     }
 
     /**
@@ -42,21 +43,8 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        /*$this->validate([
-            'name' => 'name',
-            'email' => 'email',
-            'password' => Hash::make('password'),
-        ]);*/
-        $this->validate($request,[
-            'name'=>'required',
-            'email' => 'email',
-
-        ]);
 
 
-        User::create($request->all());
-
-        return Redirect::route('users.index');
     }
 
     /**
@@ -67,7 +55,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('')->with('posts', $user->posts);
     }
 
     /**
@@ -93,7 +83,7 @@ class UserController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'email' => 'email',
-
+            'type' => 'required',
         ]);
         $user->update($request->all());
 
@@ -112,5 +102,10 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/users');
+    }
+
+    public function setPasswordAttribute($pass)
+    {
+        $this->attributes['password'] = Hash::make('password');
     }
 }

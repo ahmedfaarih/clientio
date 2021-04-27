@@ -51,17 +51,16 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <label for="pet-select">Choose User Type:</label>
 
-                                    <select name="type" id="type-select">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <select class="form-control" name="type" id="type-select">
                                         <option value="GOUSER">Normal User</option>
                                         <option value="ADMIN">ADMIN</option>
 
                                     </select>
-                                 </div>
+                                </div>
 
-                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                <div class="col-xs-12 col-sm-12 col-md-12 text-center p-2">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>

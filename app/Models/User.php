@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
-
+use DB;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -59,8 +59,13 @@ class User extends Authenticatable
         return false;
     }
 
-    public function setPasswordAttribute($pass)
+    protected function project()
     {
-        $this->attributes['password'] = Hash::make($pass);
+     return  $this->hasOne(Projects::class);
+    }
+
+    public function hasCases($id){
+        $hasCases = DB::table('projects')->where('user_id',$id)->exists();
+        return $hasCases;
     }
 }
