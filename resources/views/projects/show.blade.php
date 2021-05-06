@@ -82,6 +82,8 @@
                     <tr>
                         <th scope="col  text-white"> Updated Date</th>
                         <th scope="col  text-white">Remarks</th>
+                        <th scope="col  text-white">Manage</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -90,6 +92,15 @@
                     <tr>
                         <td>{{$update->date}}</td>
                         <td>{{$update->remarks}}</td>
+                        <td class="btn btn-primary "><a class="text-white" href="{{route('updates.edit', $update->id)}}">Edit</a></td>
+
+                        <td >
+                            <form action="{{ route('updates.destroy', $update->id)}} " class="form" role="form" method="POST">
+                                <input type="hidden" name="_method" value="delete">
+                                {{ csrf_field()}}
+                                <input class="btn btn-danger" type="submit" value="Delete" >
+                            </form>
+                        </td>
                     </tr>
                     </tbody>
 

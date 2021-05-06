@@ -20,27 +20,24 @@
                         </a>
                     </li>
 
-
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('clinetUpdate', Auth:: User()->id)}}">
+                        <a class="nav-link" href="{{route('clientDetail', with(Auth::user()->id) )}}">
                             <i class="fas fa-folder-open"></i>
                             <span class="nav-link-text">My profile</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('')}}">
+                        <a class="nav-link" href="{{route('clientUpdate', with(Auth::user()->id) )}}">
                             <i class="fas fa-pen-alt"></i>
                             <span class="nav-link-text">Project Updates</span>
                         </a>
                     </li>
 
+
                 </ul>
 
-                <!-- Divider -->
                 <hr class="my-3">
-
-                <!-- Navigation -->
 
             </div>
         </div>

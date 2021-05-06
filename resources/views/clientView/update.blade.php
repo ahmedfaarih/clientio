@@ -6,12 +6,11 @@
 @include('layouts.header')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+    <div class="">
+        <div class="row ">
+            <div class="col-md-12 text-right">
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
-
                     <div class="container card">
                         <div class="row ">
                             <div class=" pt-4 pr-4 pl-4  card-title col-md-4 thead-light">
@@ -19,8 +18,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="container">
+                    <div class="text-right">
                     @if($updates->count()<0)
                     <h2>No updates</h2>
                     @else
@@ -34,26 +32,18 @@
                                 </thead>
                                 <tbody>
                                 @foreach($updates as $update)
-
-
-
-
                                 <tr>
                                     <th scope="row">{{$update->id}}</th>
                                     <td>{{$update->date}}</td>
                                     <td>{{$update->remarks}}</td>
-
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                     @endif
 
-
-                    </div>
+                  </div>
                 </div>
-
-
                 </div>
             </div>
         </div>

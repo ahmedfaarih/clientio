@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\project_updates;
 use App\Models\Projects;
 use Illuminate\Http\Request;
+use DB;
 
 class ProjectUpdatesController extends Controller
 {
@@ -26,7 +27,7 @@ class ProjectUpdatesController extends Controller
      */
     public function create()
     {
-       $projects = Projects::all();
+         $projects = Projects::all();
          return view('updates.create' ,compact('projects'));
     }
 
@@ -44,7 +45,7 @@ class ProjectUpdatesController extends Controller
             'project_id'=>'required',
         ]);
         project_updates::create($request->all());
-        return view('adminHome');
+        return redirect('projects');
 
     }
 
@@ -54,9 +55,10 @@ class ProjectUpdatesController extends Controller
      * @param  \App\Models\project_updates  $project_updates
      * @return \Illuminate\Http\Response
      */
-    public function show(project_updates $project_updates)
+    public function show( $id)
     {
-        //
+        $updates = DB::table('project_updates')->where('user_id', $id)->get();
+        return view('clientView.update', compact('updates'));
     }
 
     /**
@@ -65,9 +67,10 @@ class ProjectUpdatesController extends Controller
      * @param  \App\Models\project_updates  $project_updates
      * @return \Illuminate\Http\Response
      */
-    public function edit(project_updates $project_updates)
+    public function edit( $id)
     {
-        //
+        $update = project_updates::find($id);
+        return view('updates.edit', compact('update'));
     }
 
     /**
@@ -77,9 +80,17 @@ class ProjectUpdatesController extends Controller
      * @param  \App\Models\project_updates  $project_updates
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, project_updates $project_updates)
+    public function update(Request $request,  $id)
     {
-        //
+        $update = project_updates::find($id);
+        $this->validate($request,[
+            'date'=>'required',
+            'remarks'=>'required',
+
+        ]);
+        $update->update($request->all());
+
+        return redirect('/projects');
     }
 
     /**
@@ -88,14 +99,17 @@ class ProjectUpdatesController extends Controller
      * @param  \App\Models\project_updates  $project_updates
      * @return \Illuminate\Http\Response
      */
-    public function destroy(project_updates $project_updates)
+    public function destroy( $id)
     {
-        //
+        $update = project_updates::findorfail($id);
+        $update->delete();
+
+        return redirect('/projects');
     }
 
     public function showUpdateOsfOneproject($id){
 
         $projectUpdate = project_updates::find($id);
-       return view('updates.index',compact('projectUpdate'));
+        return view('updates.index',compact('projectUpdate'));
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use DB;
 class UserController extends Controller
 {
     use RegistersUsers;
@@ -53,11 +53,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('')->with('posts', $user->posts);
+        $user = User::find($id);
+        $cases = DB::table('projects')->where('user_id', $id)->get();
+        return view('clientView.details', compact('user', 'cases'));
     }
 
     /**

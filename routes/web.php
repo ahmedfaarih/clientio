@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\UserController;
+use  App\Http\Controllers\ProjectController;
+use  App\Http\Controllers\ProjectUpdatesController;
 use  App\Http\Controllers\FileUpload;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +27,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('adminHome')->middleware("admin");
 
+
 /*Route::get('/home/manageuser', [App\Http\Controllers\UserController::class, 'index'])->name('UserManager')->middleware("admin");
 
 Route::get('/home/manageuser/create', [App\Http\Controllers\UserController::class, 'create'])->name('UserCreator')->middleware("admin");*/
 
-Route::resource('users', UserController::class)->middleware("admin");
+Route::resource('users', UserController::class, ['except'=> ['show']])->middleware("admin");
+Route::resource('projects', ProjectController::class)->middleware("admin");
+Route::resource('updates',ProjectUpdatesController::class,['except'=> ['show']])->middleware("admin");
+/*Route::get("clientUpdate/id", [ProjectUpdatesController::class, 'show'])->name('clientUpdate')->middleware('gouser');*/
+
+Route::get('clientUpdate/{id}',[ProjectUpdatesController::class, 'show'])->name('clientUpdate');
+Route::get('clientDetail/{id}',[UserController::class, 'show'])->name('clientDetail');
+
+

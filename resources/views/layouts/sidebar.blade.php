@@ -28,12 +28,22 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href={{route('users.index')}}>
+                        <a class="nav-link" href={{route('projects.index')}}>
                             <i class="fas fa-folder-open"></i>
                             <span class="nav-link-text">Manage Projects</span>
                         </a>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-globe"></i>  Manage Website
+                        </a>
+                        <div class="dropdown-menu nav-item " aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item nav-item" href="#">Bots</a>
+                            <a class="dropdown-item nav-item" href="#">Blogs</a>
+                            <a class="dropdown-item nav-item" href="#">Newsletters</a>
+                        </div>
+                    </li>
                 </ul>
                 <!-- Divider -->
                 <hr class="my-3">

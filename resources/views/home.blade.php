@@ -23,8 +23,7 @@
                 </div>
 
                 <div class="col-md-12">
-                    <a class="btn btn-primary mb-2" href="{{route('clinetUpdate', Auth:: User()->id)}}">View my case updates</a>
-                    <a class="btn btn-primary mb-2" href="{{route('clinetDetails', Auth::User()->id)}}">View my case details</a>
+
                 </div>
             </div>
         </div>
