@@ -6,6 +6,7 @@ use  App\Http\Controllers\ProjectController;
 use  App\Http\Controllers\ProjectUpdatesController;
 use  App\Http\Controllers\LegalBitsController;
 use  App\Http\Controllers\FileUpload;
+use  App\Http\Controllers\BotsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,15 @@ Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdm
 Route::get('/home/manageuser/create', [App\Http\Controllers\UserController::class, 'create'])->name('UserCreator')->middleware("admin");*/
 
 Route::resource('users', UserController::class, ['except'=> ['show']])->middleware("admin");
+
 Route::resource('legalBits', LegalBitsController::class)->names('legalBits')->middleware("admin");
+
 Route::resource('projects', ProjectController::class)->middleware("admin");
+
 Route::resource('updates',ProjectUpdatesController::class,['except'=> ['show']])->middleware("admin");
+
+Route::resource('bots', BotsController::class)->names('Bots')->middleware("admin");;
+
 /*Route::get("clientUpdate/id", [ProjectUpdatesController::class, 'show'])->name('clientUpdate')->middleware('gouser');*/
 
 /*takes a client id to projects controller show method to show his project detail*/
