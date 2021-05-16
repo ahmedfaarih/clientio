@@ -68,4 +68,11 @@ class User extends Authenticatable
         $hasCases = DB::table('projects')->where('user_id',$id)->exists();
         return $hasCases;
     }
+
+    protected function publications()
+    {
+        return  $this->hasMany(Publications::class);
+    }
+
+
 }

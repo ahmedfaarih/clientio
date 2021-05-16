@@ -119,11 +119,11 @@ class BotsController extends Controller
      * @param  \App\Models\Bots  $bots
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bots $bots)
+    public function destroy($id)
     {
+        $bots = Bots::find($id);
         $bots->delete();
+        return redirect()->route('Bots.index');
 
-        return redirect()->route('Bots.index')
-            ->with('success','Product deleted successfully');
     }
 }

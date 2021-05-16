@@ -7,6 +7,7 @@ use  App\Http\Controllers\ProjectUpdatesController;
 use  App\Http\Controllers\LegalBitsController;
 use  App\Http\Controllers\FileUpload;
 use  App\Http\Controllers\BotsController;
+use  App\Http\Controllers\PublicationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Route::resource('users', UserController::class, ['except'=> ['show']])->middlewa
 Route::resource('legalBits', LegalBitsController::class)->names('legalBits')->middleware("admin");
 
 Route::resource('projects', ProjectController::class)->middleware("admin");
+
+Route::resource('publications', PublicationsController::class)->middleware("admin");
 
 Route::resource('updates',ProjectUpdatesController::class,['except'=> ['show']])->middleware("admin");
 

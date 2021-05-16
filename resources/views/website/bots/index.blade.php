@@ -7,13 +7,27 @@
 @endsection
 
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 " >
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item "><a href="#"><i class="fas fa-home"></i></a></li>
+                        <li class="breadcrumb-item text-success" aria-current="page">Publications Management</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Following are the bots that'll apear in website/ Make sure to match size and design</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('Bots.create') }}"> Create New Product</a>
+            <div class="pull-right mb-2">
+                <a class="btn btn-success" href="{{ route('Bots.create') }}"> Create </a>
             </div>
         </div>
     </div>
@@ -40,17 +54,20 @@
                 <td>{{ $bot->name }}</td>
                 <td>{{ $bot->details }}</td>
 
-                <td>
-                    <form action="{{ route('Bots.destroy',$bot) }}" method="POST">
-
-                        <a class="btn btn-info" href="{{ route('Bots.show',$bot->id) }}">Show</a>
-
-                        <a class="btn btn-primary" href="{{ route('Bots.edit',$bot->id) }}">Edit</a>
-
+                {{--<td>
+                    <form action="{{ route('Bots.destroy',$bot->id) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE" />
                         @csrf
                         @method('DELETE')
-
                         <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>--}}
+
+                <td scope="row">
+                    <form action="{{ route('Bots.destroy',$bot->id) }} " class="form" role="form" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                        {{ csrf_field()}}
+                        <input class="btn btn-danger" type="submit" value="Delete" >
                     </form>
                 </td>
             </tr>
