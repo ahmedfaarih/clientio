@@ -8,6 +8,7 @@ use  App\Http\Controllers\LegalBitsController;
 use  App\Http\Controllers\FileUpload;
 use  App\Http\Controllers\BotsController;
 use  App\Http\Controllers\PublicationsController;
+use  App\Http\Controllers\DocumentRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,11 @@ Route::resource('bots', BotsController::class)->names('Bots')->middleware("admin
 Route::get('clientUpdate/{id}',[ProjectUpdatesController::class, 'show'])->name('clientUpdate');
 Route::get('clientDetail/{id}',[UserController::class, 'show'])->name('clientDetail');
 
+Route::get('/documentrequest', [DocumentRequestController::class, 'create'])->middleware("admin");
 
+Route::post('/documentrequest', [DocumentRequestController::class, 'store'])->name('fileUpload');
 
+/*this method will take a client ID and Display the requests for that client*/
+Route::get('/clientRequest/{id}', [DocumentRequestController::class, 'showClientRequests'])->name('clientRequest');
 
+Route::POST('/updateDocumentRequest/{id}', [DocumentRequestController::class, 'updateDocumentRequest'])->name('updateDocumentRequest');

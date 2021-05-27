@@ -29,15 +29,12 @@
         </div>
 
         <div class=" row  pr-4 pl-3">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h2>Publication title: {{$publication->title}} </h2>
             </div>
             <div class="col-md-4">
                 <h2>Publication type: {{$publication->type}}</h2>
             </div>
-
-
-
         </div>
         <div class="pt-2 col-md-12">
             <h2>Description</h2>
@@ -49,9 +46,9 @@
             <p>{{$publication->status}}</p>
         </div>
 
-        <div class="pt-2 col-md-12">
+        <div class="pt-2 col-md-12 p-4">
             <h2>Image</h2>
-            <img src="/publicationImg/{{ $publication->img }}" width="100px">
+            <img src="/publicationImg/{{ $publication->img }}" width="400px">
         </div>
 
     </div>

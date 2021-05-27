@@ -34,6 +34,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('clientRequest', with(Auth::user()->id) )}}">
+                            <i class="fas fa-pen-alt"></i>
+                            <span class="nav-link-text">Document Requests</span>
+                        </a>
+                    </li>
+
 
                 </ul>
 

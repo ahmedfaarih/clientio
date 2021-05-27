@@ -35,7 +35,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href={{route('projects.index')}}>
+                        <a class="nav-link" href="/documentrequest">
                             <i class="far fa-file-alt"></i>
                             <span class="nav-link-text">Request for documents</span>
                         </a>
