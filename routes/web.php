@@ -27,6 +27,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('gouser');
 
 Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('adminHome')->middleware("admin");
