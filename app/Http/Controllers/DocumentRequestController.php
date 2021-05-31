@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\sendDocumentRequestMail;
 use App\Models\DocumentRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Console\Input\Input;
 
 class DocumentRequestController extends Controller
@@ -27,8 +29,17 @@ class DocumentRequestController extends Controller
             'title' => 'required',
             'user_id' => 'required'
         ]);
+        /*Find the user to be emailed to*/
+        $user = User::find($request->user_id);
 
         DocumentRequest::create($request->all());
+        /*Fills the details for the emails*/
+        $details = [
+            'title' => $request->title,
+            'body'=>'Document request from MN Lawyers'
+        ];
+        /*Mails to the requested users email with the details*/
+        Mail::to($user->email)->send(new sendDocumentRequestMail($details));
 
         return redirect('/documentrequest');
 
