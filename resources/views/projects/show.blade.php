@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-md-4">
-                Client Name:  <i class="fas fa-user"></i></h2>
+                Client Name:  <i class="fas fa-user"></i>
                 @foreach($users as $user)
                     @if($project->user_id == $user->id)
                         <h4>  {{$user->name}}</h4>
