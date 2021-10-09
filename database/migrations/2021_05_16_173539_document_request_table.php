@@ -18,7 +18,6 @@ class DocumentRequestTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->nullable();
-            $table->string('file_path')->nullable();
             $table->boolean('request_staus')->nullable();
             $table->timestamps();
         });

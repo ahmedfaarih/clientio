@@ -46,13 +46,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <label class="form-group col-md-3 " for="pet-select">Publication type:</label>
-                                <select data-value="{{$publication->status}}" class="form-control" name="type" id="type-select">
-                                    <option value="News letter">News letter</option>
-                                    <option value="Blogs">Blogs</option>
-                                </select>
-                            </div>
+
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">

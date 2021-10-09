@@ -84,6 +84,8 @@ class UserController extends Controller
             'name'=>'required',
             'email' => 'email',
             'type' => 'required',
+            'gender' => 'required',
+            'client_id' => 'required',
         ]);
         $user->update($request->all());
 

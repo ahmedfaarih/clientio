@@ -30,17 +30,15 @@
 
         <div class=" row  pr-4 pl-4   ">
             <div class="col-md-4">
-                <h2>Project title: </h2>
-                <h4> {{$project->title}}</h4>
+               Project title: {{$project->title}}
 
             </div>
             <div class="col-md-4">
-                <h2>Project type: </h2>
-                <h4>{{$project->type}}</h4>
+                Project type: {{$project->type}}
             </div>
 
             <div class="col-md-4">
-                <h2>Client Name:  <i class="fas fa-user"></i></h2>
+                Client Name:  <i class="fas fa-user"></i></h2>
                 @foreach($users as $user)
                     @if($project->user_id == $user->id)
                         <h4>  {{$user->name}}</h4>
@@ -62,9 +60,9 @@
             <p>{{$project->created_at}}</p>
         </div>
         </div>
-    </div>
 
-    <div class="container card">
+
+    <div class="container card ">
         <div class="row card-body">
             <div class="col-md-12">
                 <h3>Latest updates of this project</h3>

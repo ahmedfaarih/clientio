@@ -11,7 +11,11 @@ class DocumentRequest extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'file_path',
         'request_staus'
     ];
+
+    public function images()
+    {
+        return $this->morphMany(Imageable::class,'imageable');
+    }
 }

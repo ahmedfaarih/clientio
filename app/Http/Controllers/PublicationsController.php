@@ -39,7 +39,6 @@ class PublicationsController extends Controller
         $request->validate([
             'user_id'=> 'required',
             'title' => 'required',
-            'type' => 'required',
             'tags' => 'required',
             'content' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -96,7 +95,6 @@ class PublicationsController extends Controller
         $this->validate($request,[
             'user_id'=> 'required',
             'title' => 'required',
-            'type' => 'required',
             'tags' => 'required',
             'content' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

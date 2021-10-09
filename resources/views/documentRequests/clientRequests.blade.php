@@ -2,26 +2,50 @@
 
 @section('content')--}}
 @extends('layouts.dashboard')
-@include('layouts.GoUserSidebar')
 @include('layouts.header')
+@extends('layouts.GoUserSidebar')
+
+@section('title')
+    Document requests
+@endsection
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+</style>
 
 @section('content')
     <div class="">
         <div class="row ">
             <div class="col-md-12 text-right">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-                </div>
 
-                <div class="col-md-12 text-left">
-                    <h2>Please upload the requested files</h2>
+                @if($clientRequests->count() <= 0)
+                <div class="col-md-12  text-center">
+                    <h4>You do not have pending requests!</h4>
+                </div>
+                @else
+                <div class="col-md-12 text-center">
 
                     @foreach($clientRequests as $request)
                         <div class="row d-flex justify-content-center mt-100">
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>{{$request->title}}</h5>
+                                        <h3>{{$request->title}}</h3>
                                     </div>
                                     @if ($errors->any())
                                         <div class="alert alert-danger">
@@ -33,34 +57,49 @@
                                             </ul>
                                         </div>
                                     @endif
-
                                     <form action="{{ route('updateDocumentRequest', $request->id) }}" method="POST" enctype="multipart/form-data">
                                        @csrf
-                                        <div class="row">
+                                        <div class="row d-flex align-content-center">
 
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <div class=" m-5 form-group">
-                                                    <input  type="hiddn" name="request_staus" class="form-control hidden" data-value="1">
-                                                    <input type="file" name="file_path" class="form-control" placeholder="file">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                <div class="fileUpload btn btn-light">
+                                                    <span>Select file (Multiple files can be uploaded)</span>
+                                                    <input multiple="" id="file" type="file" class="upload" name="file[]"    onchange="javascript:updateList()"  />
                                                 </div>
+                                                <div id="fileList"></div>
                                             </div>
+
                                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
 
                 </div>
-
+                @endif
 
             </div>
         </div>
     </div>
     </div>
+
+    <script type="text/javascript">
+        updateList = function() {
+            var input = document.getElementById('file');
+            var output = document.getElementById('fileList');
+            var children = "";
+            for (var i = 0; i < input.files.length; ++i) {
+                children += '<li style="list-style-type: none;">' + input.files.item(i).name + '</li>';
+            }
+            output.innerHTML = '<ul>'+children+'</ul>';
+
+
+        }
+    </script>
 @endsection
+
+

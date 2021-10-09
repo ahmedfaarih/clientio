@@ -18,7 +18,6 @@ class CreatePublicationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
-            $table->enum('type', ['News letter', 'Blogs']);
             $table->string('tags');
             $table->text('content');
             $table->string('img');

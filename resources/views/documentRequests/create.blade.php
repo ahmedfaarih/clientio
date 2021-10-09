@@ -64,12 +64,12 @@
         </ol>
         <div class="conatiner">
             <div class="row">
-            @foreach($documentRequests as $document)
+            @foreach($images as $image)
                 <div class="col-md-4">
-                <iframe src="/DocumentRequests/{{$document->file_path}}" width="200px" height="270px">
+                <iframe src="/DocumentRequests/{{$image->file_path}}" width="200px" height="270px">
                 </iframe>
-                <h5>Request name : <strong>{{$document->title}}</strong> </h5>
-                <form method="get" action="/DocumentRequests/{{$document->file_path}}">
+
+                <form method="get" action="/DocumentRequests/{{$image->file_path}}">
                     <button type="submit">Download!</button>
                 </form>
                 </div>

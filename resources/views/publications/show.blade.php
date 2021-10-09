@@ -13,7 +13,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item "><a href="{{route('adminHome')}}"><i class="fas fa-home"></i></a></li>
                         <li class="breadcrumb-item text" aria-current="page">Publications</li>
-                        <li class="breadcrumb-item text-success" aria-current="page">{{$publication->title}}</li>
+                       {{-- <li class="breadcrumb-item text-success" aria-current="page">{{$publication->title}}</li>--}}
                     </ol>
                 </nav>
             </div>
@@ -32,9 +32,7 @@
             <div class="col-md-6">
                 <h2>Publication title: {{$publication->title}} </h2>
             </div>
-            <div class="col-md-4">
-                <h2>Publication type: {{$publication->type}}</h2>
-            </div>
+
         </div>
         <div class="pt-2 col-md-12">
             <h2>Description</h2>

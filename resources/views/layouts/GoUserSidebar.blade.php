@@ -4,14 +4,14 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
             <a class="navbar-brand" ">
-                <img src="{{asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+                <img class="mb-2 "src="{{asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+                <h4>Client : {{Auth::user()->client_id}}</h4>
             </a>
         </div>
         <div class="navbar-inner">
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                 <!-- Nav items -->
-
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{route('home')}}">
@@ -22,30 +22,27 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('clientDetail', with(Auth::user()->id) )}}">
-                            <i class="fas fa-folder-open"></i>
+                            <i class="far fa-address-card"></i>
+
                             <span class="nav-link-text">My profile</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('clientUpdate', with(Auth::user()->id) )}}">
-                            <i class="fas fa-pen-alt"></i>
+                            <i class="far fa-edit"></i>
                             <span class="nav-link-text">Project Updates</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('clientRequest', with(Auth::user()->id) )}}">
-                            <i class="fas fa-pen-alt"></i>
+                            <i class="fas fa-file-upload"></i>
                             <span class="nav-link-text">Document Requests</span>
                         </a>
                     </li>
-
-
                 </ul>
-
                 <hr class="my-3">
-
             </div>
         </div>
     </div>

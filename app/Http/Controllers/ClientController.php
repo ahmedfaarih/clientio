@@ -20,7 +20,7 @@ class ClientController extends Controller
     public function clientDetails(user $id)
     {
         $projects = Projects::all();
-    return view('clientView.details', compact('projects'));
+         return view('clientView.details', compact('projects'));
     }
 
 

@@ -48,7 +48,7 @@
                         <div class="dropdown-menu nav-item " aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-item" href="{{route('Bots.index')}}">Bots</a>
                             <a class="dropdown-item nav-item" href="{{route('legalBits.index')}}">legal Bits</a>
-                            <a class="dropdown-item nav-item" href="{{route('publications.index')}}">Publications</a>
+                            <a class="dropdown-item nav-item" href="{{route('publications.index')}}">Blogs</a>
                         </div>
                     </li>
 

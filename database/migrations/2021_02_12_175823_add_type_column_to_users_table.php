@@ -15,6 +15,8 @@ class AddTypeColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->enum('type', ['GOUSER','ADMIN']);
+            $table->enum('gender', ['MALE','FEMALE']);
+            $table->string('client_id')->nullable()->unique();
         });
     }
 

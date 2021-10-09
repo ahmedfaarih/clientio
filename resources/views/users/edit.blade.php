@@ -45,7 +45,12 @@
                                 </div>
                             </div>
 
-
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Client ID:</strong>
+                                    <input value="{{$user->client_id}}" type="text" name="client_id" class="form-control" placeholder="User Client">
+                                </div>
+                            </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <label for="pet-select">Choose User Type:</label>
@@ -53,9 +58,19 @@
                                 <select name="type" id="type-select" value="{{$user->type}}">
                                     <option value="GOUSER">Normal User</option>
                                     <option value="ADMIN">ADMIN</option>
-
                                 </select>
                             </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label for="pet-select">Choose User Gender:</label>
+
+                                <select name="gender" id="type-select" value="{{$user->gender}}">
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                </select>
+                            </div>
+
+
 
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
