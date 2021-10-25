@@ -40,15 +40,9 @@ Route::get('/home/manageuser/create', [App\Http\Controllers\UserController::clas
 
 Route::resource('users', UserController::class, ['except'=> ['show']])->middleware("admin");
 
-Route::resource('legalBits', LegalBitsController::class)->names('legalBits')->middleware("admin");
-
 Route::resource('projects', ProjectController::class)->middleware("admin");
 
-Route::resource('publications', PublicationsController::class)->middleware("admin");
-
 Route::resource('updates',ProjectUpdatesController::class,['except'=> ['show']])->middleware("admin");
-
-Route::resource('bots', BotsController::class)->names('Bots')->middleware("admin");;
 
 /*Route::get("clientUpdate/id", [ProjectUpdatesController::class, 'show'])->name('clientUpdate')->middleware('gouser');*/
 

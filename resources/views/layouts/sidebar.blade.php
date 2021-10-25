@@ -41,16 +41,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-globe"></i>  Manage Website
-                        </a>
-                        <div class="dropdown-menu nav-item " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item nav-item" href="{{route('Bots.index')}}">Bots</a>
-                            <a class="dropdown-item nav-item" href="{{route('legalBits.index')}}">legal Bits</a>
-                            <a class="dropdown-item nav-item" href="{{route('publications.index')}}">Blogs</a>
-                        </div>
-                    </li>
+
 
 
                 </ul>
