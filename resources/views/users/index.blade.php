@@ -14,8 +14,9 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item "><a href="#"><i class="fas fa-home"></i></a></li>
             <li class="breadcrumb-item text-success" aria-current="page">User Management</li>
-          </ol>
 
+          </ol>
+            <a class="btn btn-primary  text-dark " href="{{ route('register')}}" role="button">New</a>
         </nav>
         </div>
 
@@ -24,7 +25,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mt-3">
             <h4  class="pl-1">All Users</h4>
         </div>
 

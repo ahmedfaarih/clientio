@@ -1,72 +1,54 @@
 
+<!-- /.navbar -->
 
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <span class="brand-text font-weight-light ">Clientio</span>
+    </a>
 
-<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-        <!-- Brand -->
-        <div class="sidenav-header  align-items-center">
-            <a class="navbar-brand" href="javascript:void(0)">
-                <img src="{{asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
-            </a>
-        </div>
-        <div class="navbar-inner">
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-                <!-- Nav items -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">
-                            <i class="ni ni-tv-2 text-primary"></i>
-                            <span class="nav-link-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{route('users.index')}}>
-                            <i class="fas fa-user"></i>
-                            <span class="nav-link-text">Manage Users</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href={{route('projects.index')}}>
-                            <i class="fas fa-folder-open"></i>
-                            <span class="nav-link-text">Manage Projects</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/documentrequest">
-                            <i class="far fa-file-alt"></i>
-                            <span class="nav-link-text">Request for documents</span>
-                        </a>
-                    </li>
-
-
-
-
-                </ul>
-                <!-- Divider -->
-                <hr class="my-3">
-                <!-- Heading -->
-               {{-- <h6 class="navbar-heading p-0 text-muted">
-                    <span class="docs-normal">Documentation</span>
-                </h6>--}}
-                <!-- Navigation -->
-
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{asset('assets/img/logoWhite.png')}}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
+
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-header">Quick Links</li>
+                <li class="nav-item">
+                    <a href="{{'/users'}}" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <p class="text ml-1">  Users</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{'/projects'}}" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <p class="ml-1">Projects</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{'/documentrequest'}}" class="nav-link">
+                        <i class="far fa-file-alt"></i>
+                        <p class="ml-1">Request for Documents</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- /.sidebar -->
+</aside>

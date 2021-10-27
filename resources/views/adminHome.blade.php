@@ -1,9 +1,12 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('content')
-<div class="container m5 p5">
-    {{ __('You are logged in') }} as @if(Auth::user()->isAdmin()) Administrator @else Enduser @endif
-</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Welcome to clientio</h6>
+                <p>Youre logged in as a {{auth()->user()->type}}</p>
+            </div>
+        </div>
+    </div>
 @endsection
