@@ -43,7 +43,7 @@
                 <li class="nav-item">
                     <a href="{{'/documentrequest'}}" class="nav-link">
                         <i class="far fa-file-alt"></i>
-                        <p class="ml-1">Cases</p>
+                        <p class="ml-1">Request for Documents</p>
                     </a>
                 </li>
             </ul>

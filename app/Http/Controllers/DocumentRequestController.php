@@ -74,14 +74,14 @@ class DocumentRequestController extends Controller
             $document->move(public_path().'/DocumentRequests/', $document->getClientOriginalName());
             $image = new Imageable();
             $image->file_path = $document->getClientOriginalName();
-            $image->imageable_id = $request->imageable_id;
-            $image->imageable_type = 'App\\Models\\'.$request->imageable_type;
+            $image->imageable_id = $request->id;
+            $image->imageable_type = 'App\\Models\\DocumentRequests';
             $image->save();
         }
 
-       /* $oldRequest = DocumentRequest::find($id);
+       $oldRequest = DocumentRequest::find($id);
         $oldRequest->request_staus = 1;
-        $oldRequest->save();*/
+        $oldRequest->save();
         return redirect('home');
     }
 

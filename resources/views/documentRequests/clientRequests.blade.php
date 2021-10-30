@@ -32,8 +32,10 @@
             <div class="col-md-12 text-right">
 
                 @if($clientRequests->count() <= 0)
-                <div class="col-md-12  text-center">
-                    <h4>You do not have pending requests!</h4>
+                <div class="col-md-12 d-flex justify-content-center text-center ">
+                    <div class="card bg-success">
+                    <h4 class="card-body">You do not have pending requests!</h4>
+                    </div>
                 </div>
                 @else
                 <div class="col-md-12 text-center">
@@ -60,7 +62,7 @@
                                         <div class="row d-flex align-content-center">
 
                                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                                <div class="fileUpload btn btn-light">
+                                                <div class="fileUpload btn btn-secondary">
                                                     <span>Select file (Multiple files can be uploaded)</span>
                                                     <input multiple="" id="file" type="file" class="upload" name="file[]"    onchange="javascript:updateList()"  />
                                                 </div>

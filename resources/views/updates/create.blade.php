@@ -49,7 +49,7 @@
                                 <label class="form-control">Users </label>
                                 <select name="project_id" class="form-control">
                                     @foreach($projects as $porject)
-                                        <option value="{{$porject->id}}">{{   $porject->user->name}}</option>
+                                        <option value="{{$porject->id}}">{{   $porject->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
