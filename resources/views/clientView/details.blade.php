@@ -1,15 +1,9 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.GoUserSidebar')
+@extends('layouts.app')
 
 @section('title')
     User Details
 @endsection
-<style>
-    th{
-        font-size: 27px;
-    }
-</style>
+
 
 @section('content')
    <div class="container card">
@@ -26,23 +20,23 @@
                <table class="table table">
                    <tbody>
                    <tr>
-                       <th scope="row"><h4>User name</h4></th>
-                       <th scope="col"><h4>{{$user->name}}</h4></th>
+                       <th scope="row">User name</th>
+                       <th scope="col"><p>{{$user->name}}</p></th>
                    </tr>
                    <tr>
-                       <th scope="row"><h4>Client ID</h4></th>
-                       <th scope="col"><h4>{{$user->client_id}}</h4></th>
+                       <th scope="row">Client ID</th>
+                       <th scope="col"><p>{{$user->client_id}}</p></th>
                    </tr>
 
                    <tr>
-                       <th scope="row"><h4>User email</h4></th>
-                       <th scope="col"><h4>{{$user->email}}</h4></th>
+                       <th scope="row">User email</th>
+                       <th scope="col"><p>{{$user->email}}</p></th>
                    </tr>
 
                    <tr>
                        @foreach($cases as  $case)
-                       <th scope="row"><h4>User case type</h4></th>
-                       <th scope="col"><h4>{{$case->type}}</h4></th>
+                       <th scope="row">User case type</th>
+                       <th scope="col">{{$case->type}}</th>
                        @endforeach
                    </tr>
                    </tbody>

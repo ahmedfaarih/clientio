@@ -32,7 +32,9 @@
     <!-- Navbar -->
 
     <!-- /.navbar -->
+
     @extends('layouts.sidebar')
+   
     <!-- Main Sidebar Container -->
 
 

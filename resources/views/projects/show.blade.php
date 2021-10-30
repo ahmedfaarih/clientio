@@ -1,6 +1,4 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('title',  '{{$project->title}}')
 
@@ -24,41 +22,34 @@
     <div class="container card">
         <div class="row ">
             <div class=" pt-4 pr-4 pl-4  card-title col-md-4 thead-light">
-                Project Information
+               <h4> Project Information</h4>
             </div>
         </div>
 
-        <div class=" row  pr-4 pl-4   ">
+        <div class=" row  pr-4 pl-4">
             <div class="col-md-4">
-               Project title: {{$project->title}}
-
+               <h5>Project title: </h5>{{$project->title}}
             </div>
             <div class="col-md-4">
-                Project type: {{$project->type}}
+                <h5>Project type:</h5> {{$project->type}}
             </div>
-
             <div class="col-md-4">
-                Client Name:  <i class="fas fa-user"></i>
+                <h5>Client Name :</h5>
                 @foreach($users as $user)
                     @if($project->user_id == $user->id)
-                        <h4>  {{$user->name}}</h4>
+                        <h6>  {{$user->name}}</h6>
 
                     @endif @endforeach
             </div>
-
-            </div>
-            <div class="pt-2 col-md-12">
-                <h2>Description</h2>
+            <div class="pt-2 col-md-4">
+                <h5>Description</h5>
                 <p>{{$project->description}}</p>
             </div>
-
+            </div>
         </div>
 
         <div class="row">
-        <div class="col-md-12">
-            <h4>Created on</h4>
-            <p>{{$project->created_at}}</p>
-        </div>
+
         </div>
 
 
@@ -90,8 +81,7 @@
                     <tr>
                         <td>{{$update->date}}</td>
                         <td>{{$update->remarks}}</td>
-                        <td class="btn btn-primary "><a class="text-white" href="{{route('updates.edit', $update->id)}}">Edit</a></td>
-
+                        <td class="btn btn-primary text-white" href="{{route('updates.edit', $update->id)}}">Edit</td>
                         <td >
                             <form action="{{ route('updates.destroy', $update->id)}} " class="form" role="form" method="POST">
                                 <input type="hidden" name="_method" value="delete">
@@ -112,6 +102,11 @@
                         <a class="btn btn-success" href="{{route('updates.index',$)}}">Show All update</a>--}}
             </div>
         </div>
+    </div>
+
+    <div class="col-md-12">
+        <h4>Created on </h4>
+        <p>{{$project->created_at}}</p>
     </div>
 
 @endsection

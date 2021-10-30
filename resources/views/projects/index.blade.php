@@ -1,6 +1,4 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('title', 'Project Management')
 

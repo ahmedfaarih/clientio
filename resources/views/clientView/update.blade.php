@@ -1,6 +1,4 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.GoUserSidebar')
+@extends('layouts.app')
 
 @section('title')
     Case Updates

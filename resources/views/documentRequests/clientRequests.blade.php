@@ -1,9 +1,7 @@
 {{--@extends('layouts.app')
 
 @section('content')--}}
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.GoUserSidebar')
+@extends('layouts.app')
 
 @section('title')
     Document requests

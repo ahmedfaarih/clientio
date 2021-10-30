@@ -1,6 +1,4 @@
-@extends('layouts.dashboard')
-@include('layouts.header')
-@extends('layouts.sidebar')
+@extends('layouts.app')
 
 @section('title')
     New Update
@@ -51,13 +49,13 @@
                                 <label class="form-control">Users </label>
                                 <select name="project_id" class="form-control">
                                     @foreach($projects as $porject)
-                                        <option value="{{$porject->id}}">{{   $porject->title}}</option>
+                                        <option value="{{$porject->id}}">{{   $porject->user->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="col-md-3  form-group">
-                                <label class="form-control">Users </label>
+                                <label class="form-control">Project </label>
                                 <select name="user_id" class="form-control">
                                     @foreach($projects as $porject)
                                         <option value="{{$porject->user_id}}">{{   $porject->title}}</option>
