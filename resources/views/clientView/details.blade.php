@@ -6,44 +6,32 @@
 
 
 @section('content')
-   <div class="container card">
-       <div class="row justify-content ">
-           <div class="col-md-4 justify-content-end mt-5 ml-5">
+   <div class="container ">
+       <div class="row mt-2 d-flex justify-content-center">
+           <div class=" col-md-3 card ml-4">
                @if($user->gender =="MALE")
-               <img style="height: 150px" src="{{asset('img/brand/pf.png')}}" alt="">
+               <img class="p-3" style=" height:200px;" src="{{asset('img/brand/pf.png')}}" alt="">
                @else
-                   <img style="height: 150px" src="{{asset('img/brand/wf.png')}}" alt="">
+                   <img style="with: 150px" src="{{asset('img/brand/wf.png')}}" alt="">
                @endif
            </div>
-
-           <div class="col-md-3  justify-content-center">
-               <table class="table table">
-                   <tbody>
-                   <tr>
-                       <th scope="row">User name</th>
-                       <th scope="col"><p>{{$user->name}}</p></th>
-                   </tr>
-                   <tr>
-                       <th scope="row">Client ID</th>
-                       <th scope="col"><p>{{$user->client_id}}</p></th>
-                   </tr>
-
-                   <tr>
-                       <th scope="row">User email</th>
-                       <th scope="col"><p>{{$user->email}}</p></th>
-                   </tr>
-
-                   <tr>
+           <div class="col-md-5">
+               <div class="card p-3">
+                   <div class="card-body">
                        @foreach($cases as  $case)
-                       <th scope="row">User case type</th>
-                       <th scope="col">{{$case->type}}</th>
+                           <h6 class="text-muted">User Name: <span class="text-bold">{{$user->name}}</span> </h6>
+                           <h6 class="text-muted">Client ID: <span class="text-bold">{{$user->client_id}}</span> </h6>
+                           <h6 class="text-muted">User Email: <span class="text-bold">{{$user->email}}</span> </h6>
+                           <h6 class="text-muted">User Name: <span class="text-bold">{{$user->name}}</span> </h6>
+                           <h6 class="text-muted">User case type: <span class="text-bold">{{$case->type}}</span></h6>
                        @endforeach
-                   </tr>
-                   </tbody>
-               </table>
+                   </div>
+               </div>
            </div>
+
        </div>
    </div>
+
 
 @endsection
 

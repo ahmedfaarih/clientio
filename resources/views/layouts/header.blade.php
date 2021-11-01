@@ -38,34 +38,31 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-
     </ul>
 
     <!-- Right navbar links -->
+    @if(auth()->user()->type =='GOUSER' && auth()->user()->DocumentRequests(auth()->user()->id) >0 )
     <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
+                <span class="badge badge-warning navbar-badge">{{auth()->user()->DocumentRequests(auth()->user()->id)}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <span class="dropdown-item dropdown-header">{{auth()->user()->DocumentRequests(auth()->user()->id)}} Notifications</span>
                 <div class="dropdown-divider"></div>
 
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 Document request
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
+                <p  class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> {{auth()->user()->DocumentRequests(auth()->user()->id)}} Document request
+                   {{-- <span class="float-right text-muted text-sm">2 days</span>--}}
+                </p>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                <a href="{{route('clientRequest', with(Auth::user()->id) )}}" class="dropdown-item dropdown-footer">See All Requests</a>
             </div>
         </li>
-
-
     </ul>
+    @endif
 
     <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->
@@ -114,7 +111,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Administrator</li>
+                        <li class="breadcrumb-item active">@if(auth()->user()->type == "ADMIN")Administrator @else Client @endif </li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

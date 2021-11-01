@@ -70,6 +70,21 @@ class User extends Authenticatable
         $hasCases = DB::table('projects')->where('user_id',$id)->exists();
         return $hasCases;
     }
+    public function totalNotifications($id){
+        $documentRequests = DB::table('document_requests')->where('user_id',$id)->count();
+        $updates = DB::table('project_updates')->where('user_id',$id)->count();
+        $totalNotifications = $updates+$documentRequests;
+        return $totalNotifications;
+    }
+
+    /*gets the total of document requests done by the user*/
+    public function DocumentRequests($id){
+        $documentRequests = DB::table('document_requests')
+            ->where('user_id',$id)
+            ->whereNull('request_staus')
+            ->count();
+        return $documentRequests;
+    }
 
     protected function publications()
     {

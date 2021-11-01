@@ -57,6 +57,7 @@ class DocumentRequestController extends Controller
         $clientRequests = DB::table('document_requests')
             ->where('user_id', $id)
             ->whereNull('request_staus')
+            ->latest()
             ->get();
 
         return view('documentRequests.clientRequests', compact('clientRequests'));

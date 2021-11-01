@@ -62,15 +62,16 @@
                                         <div class="row d-flex align-content-center">
 
                                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                                <div class="fileUpload btn btn-secondary">
-                                                    <span>Select file (Multiple files can be uploaded)</span>
+                                                <div class="fileUpload btn btn-info">
+                                                    <span class="p-3">Select file (Multiple files can be uploaded)</span>
+                                                    <span class="p-2"><i class="fab fa-dropbox"></i></span>
                                                     <input multiple="" id="file" type="file" class="upload" name="file[]"    onchange="javascript:updateList()"  />
                                                 </div>
                                                 <div id="fileList"></div>
                                             </div>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </form>
