@@ -48,7 +48,7 @@ class ProjectController extends Controller
             ]);
 
         Projects::create($request->all());
-
+        alert('Success', 'Created successfully');
         return redirect('/projects');
     }
 
@@ -110,6 +110,7 @@ class ProjectController extends Controller
     {
         $project = Projects::findorfail($id);
         $project->delete();
+        alert('Success', 'Project deleted successfully');
 
         return redirect('/projects');
 

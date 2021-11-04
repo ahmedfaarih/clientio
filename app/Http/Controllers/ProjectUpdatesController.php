@@ -45,6 +45,7 @@ class ProjectUpdatesController extends Controller
             'project_id'=>'required',
         ]);
         project_updates::create($request->all());
+        alert('Success', 'Update added !');
         return redirect('projects');
 
     }

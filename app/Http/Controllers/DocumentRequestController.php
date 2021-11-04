@@ -8,6 +8,7 @@ use App\Models\Imageable;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -46,8 +47,9 @@ class DocumentRequestController extends Controller
         ];
         /*Mails to the requested users email with the details*/
         Mail::to($user->email)->send(new sendDocumentRequestMail($details));
-
+        alert('Success', 'Request sent successfully');
         return redirect('/documentrequest');
+
 
     }
 
@@ -83,6 +85,7 @@ class DocumentRequestController extends Controller
        $oldRequest = DocumentRequest::find($id);
         $oldRequest->request_staus = 1;
         $oldRequest->save();
+        alert('Success', 'Uploaded sent successfully |Thank you!');
         return redirect('home');
     }
 
