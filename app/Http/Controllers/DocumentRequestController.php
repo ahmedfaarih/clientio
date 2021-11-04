@@ -47,7 +47,7 @@ class DocumentRequestController extends Controller
         ];
         /*Mails to the requested users email with the details*/
         Mail::to($user->email)->send(new sendDocumentRequestMail($details));
-        alert('Success', 'Request sent successfully');
+        alert('Success', 'Request sent successfully to '.$user->name );
         return redirect('/documentrequest');
 
 
