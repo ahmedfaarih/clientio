@@ -6,6 +6,8 @@ use App\Models\Projects;
 use App\Models\User;
 use Illuminate\Http\Request;
 use redirect;
+use  RealRashid\SweetAlert\SweetAlertServiceProvider ;
+use DB;
 
 class ProjectController extends Controller
 {
@@ -28,7 +30,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $users = User::all('id', 'name');
+        $users= DB ::table('users')->where('type','GOUSER')->get();
         return view('projects.create', compact('users'));
     }
 
@@ -74,7 +76,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
+        $users= DB ::table('users')->where('type','GOUSER')->get();
         $project = Projects::findorFail($id);
         return view('projects.edit',compact('users'), compact('project'));
     }
@@ -96,7 +98,7 @@ class ProjectController extends Controller
             'description' =>'required'
         ]);
         $project->update($request->all());
-
+        alert('Success', 'Updated successfully');
         return redirect('/projects');
     }
 

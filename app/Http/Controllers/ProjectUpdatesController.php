@@ -6,6 +6,7 @@ use App\Models\project_updates;
 use App\Models\Projects;
 use Illuminate\Http\Request;
 use DB;
+use  RealRashid\SweetAlert\SweetAlertServiceProvider ;
 
 class ProjectUpdatesController extends Controller
 {

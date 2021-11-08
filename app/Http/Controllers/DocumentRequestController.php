@@ -17,7 +17,7 @@ class DocumentRequestController extends Controller
 {
     public function create()
     {
-        $users = User::all();
+        $users= DB ::table('users')->where('type','GOUSER')->get();
 
        /* $documentRequests = DB::table('document_requests')
             ->whereNotNull('request_staus')

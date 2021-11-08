@@ -88,7 +88,7 @@ class UserController extends Controller
             'client_id' => 'required',
         ]);
         $user->update($request->all());
-
+        alert('Success', 'Updated successfully');
         return \redirect('/users');
     }
 
@@ -102,6 +102,7 @@ class UserController extends Controller
     {
         $user = User::findorFail($id);
         $user->delete();
+        alert('Success', 'Deleted successfully');
 
         return redirect('/users');
     }
