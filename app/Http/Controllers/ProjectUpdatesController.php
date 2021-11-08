@@ -45,6 +45,7 @@ class ProjectUpdatesController extends Controller
             'project_id'=>'required',
         ]);
         project_updates::create($request->all());
+        alert('Success', 'Update added !');
         return redirect('projects');
 
     }
@@ -57,7 +58,7 @@ class ProjectUpdatesController extends Controller
      */
     public function show( $id)
     {
-        $updates = DB::table('project_updates')->where('user_id', $id)->get();
+        $updates = DB::table('project_updates')->where('user_id', $id)->latest()->get();
         return view('clientView.update', compact('updates'));
     }
 

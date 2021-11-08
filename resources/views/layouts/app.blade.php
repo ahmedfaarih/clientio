@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     @include('layouts.header')
+    @include('sweetalert::alert')
     <!-- Styles -->
 
 </head>
@@ -34,7 +35,7 @@
     <!-- /.navbar -->
 
     @extends('layouts.sidebar')
-   
+
     <!-- Main Sidebar Container -->
 
 

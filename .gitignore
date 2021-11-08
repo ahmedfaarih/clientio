@@ -11,5 +11,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+<<<<<<< HEAD
 ngrok-stable-windows-amd64.zip
 ngrok.exe
+=======
+/public/DocumentRequests
+>>>>>>> 818fd0247f9ebf04d8a49ec85dafbc140ed3a9d3

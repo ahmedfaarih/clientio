@@ -46,16 +46,16 @@
 
 
                             <div class="col-md-3  form-group">
-                                <label class="form-control">Users </label>
+                                <label class="form-control">Project </label>
                                 <select name="project_id" class="form-control">
                                     @foreach($projects as $porject)
-                                        <option value="{{$porject->id}}">{{   $porject->name}}</option>
+                                        <option value="{{$porject->id}}">{{   $porject->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="col-md-3  form-group">
-                                <label class="form-control">Project </label>
+                                <label class="form-control">Project Client </label>
                                 <select name="user_id" class="form-control">
                                     @foreach($projects as $porject)
                                         <option value="{{$porject->user_id}}">{{   $porject->title}}</option>
