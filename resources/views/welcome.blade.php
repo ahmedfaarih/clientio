@@ -26,7 +26,7 @@
     <div class="container bg-gray-100">
        <div class="row">
            <div class="col-md-12 d-flex justify-content-center text-center text- ">
-               <img style="margin: 30px 0px;" height="70px" width="140px" src="{{asset('assets/img/LogoOriginal.png')}}" alt="">
+               <img style="margin: 30px 0px;" height="70px" width="140px" src="{{asset('assets/img/logoOriginal.png')}}" alt="">
                 <span class = "text-center text-gray-900 text-bold" style="font-size: 20px; ">Clientio | by MN Lawyers</span>
            </div>
        </div>
