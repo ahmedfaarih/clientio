@@ -91,7 +91,7 @@ class ProjectUpdatesController extends Controller
 
         ]);
         $update->update($request->all());
-
+        alert('Success', 'Update edited successfully  ');
         return redirect('/projects');
     }
 

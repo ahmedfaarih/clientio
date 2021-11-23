@@ -81,7 +81,8 @@
                     <tr>
                         <td>{{$update->date}}</td>
                         <td>{{$update->remarks}}</td>
-                        <td class="btn btn-primary text-white" href="{{route('updates.edit', $update->id)}}">Edit</td>
+                        <td class="btn btn-primary "><a class="text-white"
+                                href="{{route('updates.edit', $update->id)}}">Edit</a></td>
                         <td >
                             <form action="{{ route('updates.destroy', $update->id)}} " class="form" role="form" method="POST">
                                 <input type="hidden" name="_method" value="delete">

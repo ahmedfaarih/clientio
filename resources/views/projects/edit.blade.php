@@ -50,7 +50,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Project description</label>
-                                    <textarea  placeholder="Description" type="text" name="description" class="form-control" id="description" rows="20">{{$project->description}}</textarea>
+                                    <textarea  placeholder="Description" type="text" name="description" class="form-control" id="description" rows="5">{{$project->description}}</textarea>
                                 </div>
                             </div>
 
